@@ -1,0 +1,43 @@
+version:  '3.7'
+services:
+  portfolio-api:
+    image: aswins41192/portfolio:portfolio-api-0.0.1
+    deploy:
+      restart_policy: 
+        condition: on-failure
+        delay: 60s
+        max_attempts: 5
+        window: 120s
+    ports:
+      - "8081:8080"
+    depends_on:
+      - portfolio-db
+    environment:
+      - db.url=jdbc:mysql://portfolio-db:3306/portfolio
+      - db.username=admin
+      - db.password=admin
+      - spring.profiles.active=prod
+    networks:
+      - portfolio
+  portfolio-ui: 
+    image: aswins41192/portfolio:portfolio-ui-0.0.1
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - portfolio-api
+    networks:
+      - portfolio
+  portfolio-db: 
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=portfolio
+    networks:
+      - portfolio
+networks:
+  portfolio: 
