@@ -1,25 +1,16 @@
 package com.portfolio.portfolioapi.entity;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedAttributeNode;
-import javax.persistence.NamedEntityGraph;
-import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Getter;
 import lombok.Setter;
 
-@NamedEntityGraph(name ="graph.ProjectsRoles",
-                attributeNodes ={@NamedAttributeNode(value = "projects")})
 @Entity
 @Table(name = "experiences")
 @Getter @Setter

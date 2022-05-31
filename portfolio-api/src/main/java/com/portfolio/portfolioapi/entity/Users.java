@@ -1,8 +1,6 @@
 package com.portfolio.portfolioapi.entity;
 
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedAttributeNode;
@@ -38,7 +36,7 @@ public class Users extends BaseEntity {
     private String linkedinProfile;
 
     @OneToMany(mappedBy="user")
-    private List<UserDescription> userDescriptions;
+    private Set<UserDescription> userDescriptions;
 
     @OneToMany(mappedBy = "user")
     private Set<Experience> experiences;

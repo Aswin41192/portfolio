@@ -1,12 +1,8 @@
 package com.portfolio.portfolioapi.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.portfolio.portfolioapi.entity.Experience;
 import com.portfolio.portfolioapi.entity.Users;
 import com.portfolio.portfolioapi.services.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
